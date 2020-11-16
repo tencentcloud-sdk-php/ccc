@@ -24,6 +24,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setToken(string $Token) 设置SDK 登录 Token。
  * @method integer getExpiredTime() 获取过期时间戳，Unix 时间戳。
  * @method void setExpiredTime(integer $ExpiredTime) 设置过期时间戳，Unix 时间戳。
+ * @method string getSdkURL() 获取SDK 加载路径会随着 SDK 的发布而变动。
+ * @method void setSdkURL(string $SdkURL) 设置SDK 加载路径会随着 SDK 的发布而变动。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -40,6 +42,11 @@ class CreateSDKLoginTokenResponse extends AbstractModel
     public $ExpiredTime;
 
     /**
+     * @var string SDK 加载路径会随着 SDK 的发布而变动。
+     */
+    public $SdkURL;
+
+    /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
@@ -47,6 +54,7 @@ class CreateSDKLoginTokenResponse extends AbstractModel
     /**
      * @param string $Token SDK 登录 Token。
      * @param integer $ExpiredTime 过期时间戳，Unix 时间戳。
+     * @param string $SdkURL SDK 加载路径会随着 SDK 的发布而变动。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -68,6 +76,10 @@ class CreateSDKLoginTokenResponse extends AbstractModel
 
         if (array_key_exists("ExpiredTime",$param) and $param["ExpiredTime"] !== null) {
             $this->ExpiredTime = $param["ExpiredTime"];
+        }
+
+        if (array_key_exists("SdkURL",$param) and $param["SdkURL"] !== null) {
+            $this->SdkURL = $param["SdkURL"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
