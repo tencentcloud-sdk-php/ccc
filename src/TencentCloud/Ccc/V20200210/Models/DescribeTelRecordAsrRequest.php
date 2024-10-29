@@ -18,18 +18,14 @@ namespace TencentCloud\Ccc\V20200210\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeActiveCarrierPrivilegeNumber请求参数结构体
+ * DescribeTelRecordAsr请求参数结构体
  *
  * @method integer getSdkAppId() 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
  * @method void setSdkAppId(integer $SdkAppId) 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
- * @method integer getPageNumber() 获取默认0
- * @method void setPageNumber(integer $PageNumber) 设置默认0
- * @method integer getPageSize() 获取默认10，最大100
- * @method void setPageSize(integer $PageSize) 设置默认10，最大100
- * @method array getFilters() 获取筛选条件 Name支持PhoneNumber(按号码模糊查找)
- * @method void setFilters(array $Filters) 设置筛选条件 Name支持PhoneNumber(按号码模糊查找)
+ * @method string getSessionId() 获取会话 ID
+ * @method void setSessionId(string $SessionId) 设置会话 ID
  */
-class DescribeActiveCarrierPrivilegeNumberRequest extends AbstractModel
+class DescribeTelRecordAsrRequest extends AbstractModel
 {
     /**
      * @var integer 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
@@ -37,25 +33,13 @@ class DescribeActiveCarrierPrivilegeNumberRequest extends AbstractModel
     public $SdkAppId;
 
     /**
-     * @var integer 默认0
+     * @var string 会话 ID
      */
-    public $PageNumber;
-
-    /**
-     * @var integer 默认10，最大100
-     */
-    public $PageSize;
-
-    /**
-     * @var array 筛选条件 Name支持PhoneNumber(按号码模糊查找)
-     */
-    public $Filters;
+    public $SessionId;
 
     /**
      * @param integer $SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-     * @param integer $PageNumber 默认0
-     * @param integer $PageSize 默认10，最大100
-     * @param array $Filters 筛选条件 Name支持PhoneNumber(按号码模糊查找)
+     * @param string $SessionId 会话 ID
      */
     function __construct()
     {
@@ -74,21 +58,8 @@ class DescribeActiveCarrierPrivilegeNumberRequest extends AbstractModel
             $this->SdkAppId = $param["SdkAppId"];
         }
 
-        if (array_key_exists("PageNumber",$param) and $param["PageNumber"] !== null) {
-            $this->PageNumber = $param["PageNumber"];
-        }
-
-        if (array_key_exists("PageSize",$param) and $param["PageSize"] !== null) {
-            $this->PageSize = $param["PageSize"];
-        }
-
-        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
-            $this->Filters = [];
-            foreach ($param["Filters"] as $key => $value){
-                $obj = new Filter();
-                $obj->deserialize($value);
-                array_push($this->Filters, $obj);
-            }
+        if (array_key_exists("SessionId",$param) and $param["SessionId"] !== null) {
+            $this->SessionId = $param["SessionId"];
         }
     }
 }
